@@ -1,0 +1,17 @@
+<h2>Data Binding</h2>
+
+<h3>String Interpolation</h3>
+<p>Me llamo {{nombre}}</p>
+<p>El nombre {{nombre.includes('n') ? '' : 'no'}} incluye la n</p>
+
+<h3>Property Binding</h3>
+<!-- <input type="text" placeholder="{{nombre}}"> -->
+<input type="text" [placeholder]="nombre" [disabled]="!modoEdicion">
+
+<h3>Event Binding</h3>
+<button type="submit" (click)="toggleModoEdicion($event)">Toggle Modo Edición</button>
+
+<h3>Two Way Data Binding</h3>
+<input type="text" [(ngModel)]="nombre">
+
+<input type="text">
