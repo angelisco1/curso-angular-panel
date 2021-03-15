@@ -20,4 +20,9 @@ export class CmpDataBindingComponent implements OnInit {
     this.modoEdicion = !this.modoEdicion;
     this.nombre = 'Ángel';
   }
+
+  setNombre(event) {
+    console.log({event})
+    this.nombre = event.target.value;
+  }
 }
