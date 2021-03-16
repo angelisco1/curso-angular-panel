@@ -1,0 +1,26 @@
+<h2>@Input y @Output</h2>
+
+<app-sugus
+  [color]="sugus[0].color"
+  [sabor]="sugus[0].sabor"
+></app-sugus>
+
+<app-sugus
+  [color]="sugus[1].color"
+  [sabor]="sugus[1].sabor"
+></app-sugus>
+<!--
+<app-sugus
+  [color]="sugus[2].color"
+  [sabor]="sugus[2].sabor"
+></app-sugus>
+
+<app-sugus
+  color="red"
+  sabor="fresa"
+></app-sugus> -->
+
+<app-luke [miHermana]="leia"></app-luke>
+
+<app-leia [yo]="leia" (leiaCambiada)="leia = $event"></app-leia>
+<!-- <app-leia [yo]="leia" (leiaCambiada)="cambiarLeia($event)"></app-leia> -->

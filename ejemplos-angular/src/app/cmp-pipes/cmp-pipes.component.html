@@ -1,0 +1,24 @@
+<h2>Pipes</h2>
+
+<div>
+  <h4>{{producto.nombre | titlecase}}</h4>
+  <p>Precio: {{producto.precio | currency:'EUR'}}</p>
+  <p>Fecha de lanzamiento: {{producto.fechaLanzamiento | date:'dd/MMMM/yyyy'}}</p>
+  <p>{{producto.descripcion | slice:0:100 | puntitos}}</p>
+  <p>{{producto.descripcion | slice:0:100 | puntitos:30}}</p>
+  <p>{{producto.descripcion | slice:0:100 | puntitos:200}}</p>
+</div>
+
+<pre>{{producto | json}}</pre>
+
+<input type="text" [(ngModel)]="textoFiltro">
+
+<ul>
+  <li *ngFor="let prod of productos">{{prod}}</li>
+</ul>
+
+<input type="text" (change)="addProducto($event)">
+
+<ul>
+  <li *ngFor="let prod of productos | filtro:textoFiltro">{{prod}}</li>
+</ul>
