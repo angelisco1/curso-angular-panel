@@ -11,7 +11,7 @@ registerLocaleData(localeEs, 'es');
   templateUrl: './cmp-pipes.component.html',
   styleUrls: ['./cmp-pipes.component.css'],
   providers: [
-    { provide: LOCALE_ID, useValue: 'es' }
+    { provide: LOCALE_ID, useValue: window.navigator.language }
   ]
 })
 export class CmpPipesComponent implements OnInit {
@@ -32,9 +32,16 @@ export class CmpPipesComponent implements OnInit {
 
   textoFiltro = 'One';
 
+  mensaje = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Un mensaje');
+    }, 1500)
+  });
+
   constructor() { }
 
   ngOnInit(): void {
+    // this.mensaje.then().catch()
   }
 
   addProducto(event) {

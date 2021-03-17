@@ -11,6 +11,8 @@ import { LeiaComponent } from './cmp-input-output/leia/leia.component';
 import { CmpPipesComponent } from './cmp-pipes/cmp-pipes.component';
 import { PuntitosPipe } from './cmp-pipes/puntitos.pipe';
 import { FiltroPipe } from './cmp-pipes/filtro.pipe';
+import { CmpDirectivasComponent } from './cmp-directivas/cmp-directivas.component';
+import { BlinkDirective } from './cmp-directivas/blink.directive';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { FiltroPipe } from './cmp-pipes/filtro.pipe';
     LeiaComponent,
     CmpPipesComponent,
     PuntitosPipe,
-    FiltroPipe
+    FiltroPipe,
+    CmpDirectivasComponent,
+    BlinkDirective
   ],
   imports: [
     BrowserModule,

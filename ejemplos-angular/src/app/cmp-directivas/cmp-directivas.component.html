@@ -1,0 +1,68 @@
+<h2>Directivas</h2>
+
+<h3>De atributo</h3>
+<!-- ngModel -->
+<!-- ngStyle -->
+<p [ngClass]="{tachado: tarea.completada}">{{tarea.titulo}}</p>
+<!-- <p class="tachado">Texto tachado</p> -->
+
+<!-- <p appBlink color="red">Si dejas el ratón encima, parpadeo</p> -->
+<p appBlink="red">Si dejas el ratón encima, parpadeo</p>
+<p appBlink="orchid">Si dejas el ratón encima, parpadeo</p>
+<p appBlink="blue">Si dejas el ratón encima, parpadeo</p>
+<p appBlink="gold">Si dejas el ratón encima, parpadeo</p>
+<p appBlink>Si dejas el ratón encima, parpadeo</p>
+
+
+
+
+
+<h3>Estructurales</h3>
+
+<button type="button" (click)="toggleMostrarParrafo()">Mostrar párrafo</button>
+
+<!-- <p *ngIf="mostrarParrafo">Se muestra (IF)</p> -->
+<!-- <p *ngIf="mostrarParrafo; else ngElse">Se muestra (IF)</p> -->
+<!-- <p *ngElse>Se muestra (ELSE)</p> -->
+
+<div *ngIf="mostrarParrafo; then ngIf else ngElse"></div>
+
+<ng-template #ngIf>
+  <p>Se muestra (IF)</p>
+</ng-template>
+
+<ng-template #ngElse>
+  <p>Se muestra (ELSE)</p>
+</ng-template>
+
+<!--
+<template>
+  <div>
+    <h2>Titulo</h2>
+    <p>Descripcion</p>
+  </div>
+</template> -->
+
+<ul>
+  <li *ngFor="let mascota of mascotas; let posicion = index; let esUltimo = last">
+    {{posicion + 1}}:
+    {{mascota | titlecase}}
+    {{esUltimo ? '(Es la última mascota)' : ''}}
+  </li>
+</ul>
+
+<ul>
+  <li *ngFor="let obj of tarea | keyvalue">
+    {{obj.key}}: {{obj.value}}
+  </li>
+</ul>
+
+<div [ngSwitch]="mascotaSeleccionada">
+  <ng-container *ngFor="let mascota of mascotas">
+    <p *ngSwitchCase="mascota">Tengo un {{mascota}}</p>
+  </ng-container>
+  <!-- <p *ngSwitchCase="'perro'">Tengo un perro</p>
+  <p *ngSwitchCase="'gato'">Tengo un gato</p>
+  <p *ngSwitchCase="'loro'">Tengo un loro</p> -->
+  <p *ngSwitchDefault>No tengo ninguna de las mascotas anteriores</p>
+</div>

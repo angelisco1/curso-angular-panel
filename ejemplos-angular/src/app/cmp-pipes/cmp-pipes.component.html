@@ -22,3 +22,5 @@
 <ul>
   <li *ngFor="let prod of productos | filtro:textoFiltro">{{prod}}</li>
 </ul>
+
+<p>Mensaje: {{mensaje | async}}</p>
