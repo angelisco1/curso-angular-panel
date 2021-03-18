@@ -3,11 +3,19 @@
 <form (ngSubmit)="login(form)" #form="ngForm">
   <div>
     <label for="usuario">Usuario</label>
-    <input type="text" id="usuario" name="user" [ngModel]="valoresIniciales.usuario" required>
+    <input type="text" id="usuario" name="user" [ngModel]="valoresIniciales.usuario" required #usuario="ngModel">
+    <app-error
+      *ngIf="usuario.invalid && usuario.dirty"
+      [error]="usuario.errors"
+    ></app-error>
   </div>
   <div>
     <label for="password">Password</label>
-    <input type="password" id="password" name="pw" [ngModel]="valoresIniciales.password" required minlength="8">
+    <input type="password" id="password" name="pw" [ngModel]="valoresIniciales.password" required minlength="8" #password="ngModel">
+    <app-error
+      *ngIf="password.invalid && password.dirty"
+      [error]="password.errors"
+    ></app-error>
   </div>
   <button type="submit" [disabled]="form.invalid">Login</button>
 </form>

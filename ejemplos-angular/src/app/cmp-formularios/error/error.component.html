@@ -1,1 +1,4 @@
-<p>error works!</p>
+<div [ngSwitch]="errorKey">
+  <span *ngSwitchCase="'required'">Error: el campo es obligatorio</span>
+  <span *ngSwitchCase="'minlength'">Error: tienes {{error.minlength.actualLength}}/{{error.minlength.requiredLength}} carácteres</span>
+</div>

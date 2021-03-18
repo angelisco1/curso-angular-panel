@@ -1,13 +1,15 @@
 <h3>Reactivos</h3>
 
-<form>
+<form [formGroup]="formulario" (ngSubmit)="login()">
   <div>
     <label for="usuario">Usuario</label>
-    <input type="text" id="usuario">
+    <input type="text" id="usuario" formControlName="usuario">
+    <app-error *ngIf="formulario.controls.usuario.invalid && formulario.controls.usuario.dirty" [error]="formulario.controls.usuario.errors"></app-error>
   </div>
   <div>
     <label for="password">Password</label>
-    <input type="password" id="password">
+    <input type="password" id="password" formControlName="password">
+    <app-error *ngIf="formulario.controls.password.invalid && formulario.controls.password.dirty" [error]="formulario.controls.password.errors"></app-error>
   </div>
-  <button type="submit">Login</button>
+  <button type="submit" [disabled]="formulario.invalid">Login</button>
 </form>
