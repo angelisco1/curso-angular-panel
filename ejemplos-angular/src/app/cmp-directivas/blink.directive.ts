@@ -1,19 +1,36 @@
-import { Directive, HostBinding, HostListener, Input } from '@angular/core';
+import { Directive, HostBinding, HostListener, Input, OnInit } from '@angular/core';
 
 @Directive({
   selector: '[appBlink]'
 })
-export class BlinkDirective {
+export class BlinkDirective implements OnInit {
 
   // @HostBinding('attr.disabled') btnDisabled: boolean;
-  // @HostBinding('class') colorFondo: string;
+  // @HostBinding('class') clasesAAñadir: string = tachado;
   @HostBinding('style.backgroundColor') colorFondo: string;
-  @Input('appBlink') color = 'greenyellow';
+  // @Input('appBlink') color;
+  color: string;
   colorInicial = 'white';
+
+  @Input('appBlink') opciones;
+
   intervalId = null;
 
   constructor() {
-    console.log('Directiva Blink')
+    // console.log('Directiva Blink')
+    // console.log(this.color);
+  }
+
+  ngOnInit() {
+    // this.clasesAAñadir += this.clases.tachado ? 'tachado' : '';
+
+    // console.log(this.color)
+    // if (!this.color) {
+    //   this.color = 'greenyellow';
+    // }
+    this.color = this.opciones.color ? this.opciones.color : 'yellowgreen';
+    console.log(typeof this.opciones)
+    this.colorInicial = this.opciones.colorInicial ? this.opciones.colorInicial : 'white';
   }
 
   @HostListener('mouseover') onMouseOver() {

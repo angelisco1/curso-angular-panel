@@ -1,0 +1,13 @@
+<h3>De Plantilla</h3>
+
+<form (ngSubmit)="login(form)" #form="ngForm">
+  <div>
+    <label for="usuario">Usuario</label>
+    <input type="text" id="usuario" name="user" [ngModel]="valoresIniciales.usuario" required>
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input type="password" id="password" name="pw" [ngModel]="valoresIniciales.password" required minlength="8">
+  </div>
+  <button type="submit" [disabled]="form.invalid">Login</button>
+</form>

@@ -17,6 +17,8 @@ export class CmpDirectivasComponent implements OnInit {
   //   {key: 'titulo', value: 'Tarea 1'},
   // ]
 
+  opciones1Blink = {color: 'gold', colorInicial: 'blue'};
+
   mascotas = [
     'perro',
     'gato',
@@ -36,6 +38,13 @@ export class CmpDirectivasComponent implements OnInit {
 
   toggleMostrarParrafo() {
     this.mostrarParrafo = !this.mostrarParrafo;
+  }
+
+  getOpciones2Blink() {
+    return {
+      color: 'gray',
+      colorInicial: 'red'
+    };
   }
 
 }

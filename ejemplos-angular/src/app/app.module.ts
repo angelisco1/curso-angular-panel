@@ -13,6 +13,10 @@ import { PuntitosPipe } from './cmp-pipes/puntitos.pipe';
 import { FiltroPipe } from './cmp-pipes/filtro.pipe';
 import { CmpDirectivasComponent } from './cmp-directivas/cmp-directivas.component';
 import { BlinkDirective } from './cmp-directivas/blink.directive';
+import { CmpFormulariosComponent } from './cmp-formularios/cmp-formularios.component';
+import { ReactivosComponent } from './cmp-formularios/reactivos/reactivos.component';
+import { PlantillaComponent } from './cmp-formularios/plantilla/plantilla.component';
+import { ErrorComponent } from './cmp-formularios/error/error.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { BlinkDirective } from './cmp-directivas/blink.directive';
     PuntitosPipe,
     FiltroPipe,
     CmpDirectivasComponent,
-    BlinkDirective
+    BlinkDirective,
+    CmpFormulariosComponent,
+    ReactivosComponent,
+    PlantillaComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
