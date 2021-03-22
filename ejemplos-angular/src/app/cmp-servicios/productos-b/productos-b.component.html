@@ -1,0 +1,11 @@
+<h3>Productos B</h3>
+
+<input type="text" #inputProductoB>
+<button type="button" (click)="addProducto(inputProductoB.value)">Añadir producto</button>
+
+<ul>
+  <li *ngFor="let producto of productos">{{producto}}</li>
+</ul>
+
+<!-- <p>{{productoSinStock}}</p> -->
+<p>{{comunicacionServ.enviarDato | async}}</p>

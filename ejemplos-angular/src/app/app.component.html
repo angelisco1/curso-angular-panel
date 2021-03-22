@@ -4,5 +4,8 @@
 <!-- <app-cmp-input-output></app-cmp-input-output> -->
 <!-- <app-cmp-pipes></app-cmp-pipes> -->
 <!-- <app-cmp-directivas></app-cmp-directivas> -->
+<!-- <app-cmp-formularios></app-cmp-formularios> -->
+<!-- <app-cmp-servicios></app-cmp-servicios> -->
 
-<app-cmp-formularios></app-cmp-formularios>
+<app-cmp-observables *ngIf="seMuestra"></app-cmp-observables>
+<button type="button" (click)="seMuestra = !seMuestra">Cambiar seMuestra</button>

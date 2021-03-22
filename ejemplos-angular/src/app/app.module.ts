@@ -17,6 +17,10 @@ import { CmpFormulariosComponent } from './cmp-formularios/cmp-formularios.compo
 import { ReactivosComponent } from './cmp-formularios/reactivos/reactivos.component';
 import { PlantillaComponent } from './cmp-formularios/plantilla/plantilla.component';
 import { ErrorComponent } from './cmp-formularios/error/error.component';
+import { CmpServiciosComponent } from './cmp-servicios/cmp-servicios.component';
+import { ProductosAComponent } from './cmp-servicios/productos-a/productos-a.component';
+import { ProductosBComponent } from './cmp-servicios/productos-b/productos-b.component';
+import { CmpObservablesComponent } from './cmp-observables/cmp-observables.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,11 @@ import { ErrorComponent } from './cmp-formularios/error/error.component';
     CmpFormulariosComponent,
     ReactivosComponent,
     PlantillaComponent,
-    ErrorComponent
+    ErrorComponent,
+    CmpServiciosComponent,
+    ProductosAComponent,
+    ProductosBComponent,
+    CmpObservablesComponent
   ],
   imports: [
     BrowserModule,

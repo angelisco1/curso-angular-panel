@@ -11,5 +11,22 @@
     <input type="password" id="password" formControlName="password">
     <app-error *ngIf="formulario.controls.password.invalid && formulario.controls.password.dirty" [error]="formulario.controls.password.errors"></app-error>
   </div>
+
+  <div>
+    <label for="pais">País</label>
+    <select formControlName="pais" id="paises">
+      <option value="es">España</option>
+      <option value="it">Italia</option>
+      <option value="po">Portugal</option>
+    </select>
+    <app-error *ngIf="formulario.controls.pais.invalid && formulario.controls.pais.dirty" [error]="formulario.controls.pais.errors"></app-error>
+  </div>
+
+  <div>
+    <label for="telefono">Teléfono</label>
+    <input type="tel" formControlName="telefono" id="telefono">
+    <app-error *ngIf="formulario.invalid && formulario.dirty && formulario.errors" [error]="formulario.errors"></app-error>
+  </div>
+
   <button type="submit" [disabled]="formulario.invalid">Login</button>
 </form>

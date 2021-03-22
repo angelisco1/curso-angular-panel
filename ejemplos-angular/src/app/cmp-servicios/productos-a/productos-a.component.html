@@ -1,0 +1,9 @@
+<h3>Productos A</h3>
+
+<input type="text" #inputProductoA>
+<button type="button" (click)="addProducto(inputProductoA.value)">Añadir producto</button>
+<button type="button" (click)="emitirProductoSinStock(inputProductoA.value)">Producto sin stock</button>
+
+<ul>
+  <li *ngFor="let producto of productos">{{producto}}</li>
+</ul>
