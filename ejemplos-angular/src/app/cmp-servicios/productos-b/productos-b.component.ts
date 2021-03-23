@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ComunicacionService } from '../comunicacion.service';
 import { ProductosService } from '../productos.service';
 
@@ -17,6 +17,9 @@ export class ProductosBComponent implements OnInit {
 
   ngOnInit(): void {
     this.productos = this.productosServ.getProductos();
+    this.productosServ.enviarDato.subscribe((producto) => {
+      this.productoSinStock = producto;
+    });
     // this.comunicacionServ.enviarDato.subscribe((producto) => {
     //   this.productoSinStock = producto;
     // });
@@ -24,5 +27,9 @@ export class ProductosBComponent implements OnInit {
 
   addProducto(nombreProducto) {
     this.productosServ.addProducto(nombreProducto);
+  }
+
+  emitirProductoSinStock(nombreProducto) {
+    this.productosServ.enviarDato.emit('Ya no hay existencias del producto ' + nombreProducto);
   }
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { ComunicacionService } from './comunicacion.service';
 
 // @Injectable({
@@ -7,6 +7,7 @@ import { ComunicacionService } from './comunicacion.service';
 @Injectable()
 export class ProductosService {
   productos = [];
+  enviarDato = new EventEmitter<string>();
 
   constructor(private comunicacionServ: ComunicacionService) { }
 

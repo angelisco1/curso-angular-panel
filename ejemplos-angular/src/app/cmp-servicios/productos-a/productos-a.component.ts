@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ProductosService } from '../productos.service';
 import { ComunicacionService } from '../comunicacion.service';
 
@@ -6,13 +6,13 @@ import { ComunicacionService } from '../comunicacion.service';
   selector: 'app-productos-a',
   templateUrl: './productos-a.component.html',
   styleUrls: ['./productos-a.component.css'],
-  providers: [
-    ProductosService
-  ]
+  // providers: [
+  //   ProductosService
+  // ]
 })
 export class ProductosAComponent implements OnInit {
   productos = [];
-  constructor(private productosServ: ProductosService, private comunicacionServ: ComunicacionService) { }
+  constructor(@Inject('instanciaA') private productosServ: ProductosService, private comunicacionServ: ComunicacionService) { }
 
   ngOnInit(): void {
     this.productos = this.productosServ.getProductos();
@@ -24,5 +24,6 @@ export class ProductosAComponent implements OnInit {
 
   emitirProductoSinStock(nombreProducto) {
     this.comunicacionServ.enviarDato.emit('Ya no hay existencias del producto ' + nombreProducto);
+    this.productosServ.enviarDato.emit('Ya no hay existencias del producto ' + nombreProducto);
   }
 }

@@ -1,0 +1,9 @@
+<h2>Peticiones HTTP</h2>
+<input type="text" #nuevaTarea>
+<button type="button" (click)="addTarea(nuevaTarea.value)">Crear nueva tarea</button>
+<ul>
+  <li *ngFor="let tarea of tareas">
+    {{tarea.titulo}}
+    <button type="button" (click)="eliminar(tarea.id)">Eliminar tarea</button>
+  </li>
+</ul>

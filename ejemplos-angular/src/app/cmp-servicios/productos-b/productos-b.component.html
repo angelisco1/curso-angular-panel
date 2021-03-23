@@ -2,10 +2,14 @@
 
 <input type="text" #inputProductoB>
 <button type="button" (click)="addProducto(inputProductoB.value)">Añadir producto</button>
+<button type="button" (click)="emitirProductoSinStock(inputProductoB.value)">Producto sin stock</button>
 
 <ul>
   <li *ngFor="let producto of productos">{{producto}}</li>
 </ul>
 
-<!-- <p>{{productoSinStock}}</p> -->
-<p>{{comunicacionServ.enviarDato | async}}</p>
+<p>{{productoSinStock}}</p>
+<!-- <p>{{comunicacionServ.enviarDato | async}}</p> -->
+
+<hr>
+<app-productos-b1></app-productos-b1>

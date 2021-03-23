@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { CmpDataBindingComponent } from './cmp-data-binding/cmp-data-binding.component';
@@ -21,6 +22,9 @@ import { CmpServiciosComponent } from './cmp-servicios/cmp-servicios.component';
 import { ProductosAComponent } from './cmp-servicios/productos-a/productos-a.component';
 import { ProductosBComponent } from './cmp-servicios/productos-b/productos-b.component';
 import { CmpObservablesComponent } from './cmp-observables/cmp-observables.component';
+import { ProductosB1Component } from './cmp-servicios/productos-b1/productos-b1.component';
+import { ProductosService } from './cmp-servicios/productos.service';
+import { CmpHttpComponent } from './cmp-http/cmp-http.component';
 
 @NgModule({
   declarations: [
@@ -42,14 +46,19 @@ import { CmpObservablesComponent } from './cmp-observables/cmp-observables.compo
     CmpServiciosComponent,
     ProductosAComponent,
     ProductosBComponent,
-    CmpObservablesComponent
+    CmpObservablesComponent,
+    ProductosB1Component,
+    CmpHttpComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: 'instanciaA', useClass: ProductosService }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
