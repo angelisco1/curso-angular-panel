@@ -1,0 +1,19 @@
+<form [formGroup]="formulario">
+  <div>
+    <label for="texto1">Texto 1:</label>
+    <input type="text" id="texto1" formControlName="texto1">
+  </div>
+  <div>
+    <label for="texto2">Texto 2:</label>
+    <input type="text" id="texto2" formControlName="texto2">
+  </div>
+  <div>
+    <label for="imagen">Url imagen:</label>
+    <input type="text" id="imagen" formControlName="imagen">
+  </div>
+  <div>
+    <label for="color">Color:</label>
+    <input type="color" id="color" formControlName="color">
+  </div>
+  <button type="submit">Guardar meme</button>
+</form>

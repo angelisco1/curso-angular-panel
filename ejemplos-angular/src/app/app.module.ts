@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { CmpDataBindingComponent } from './cmp-data-binding/cmp-data-binding.component';
@@ -25,6 +25,14 @@ import { CmpObservablesComponent } from './cmp-observables/cmp-observables.compo
 import { ProductosB1Component } from './cmp-servicios/productos-b1/productos-b1.component';
 import { ProductosService } from './cmp-servicios/productos.service';
 import { CmpHttpComponent } from './cmp-http/cmp-http.component';
+import { AuthInterceptor } from './cmp-http/auth.interceptor';
+import { CacheInterceptor } from './cmp-http/cache.interceptor';
+import { CmpRoutingComponent } from './cmp-routing/cmp-routing.component';
+import { NuevoUsuarioComponent } from './cmp-routing/nuevo-usuario/nuevo-usuario.component';
+import { UsuariosComponent } from './cmp-routing/usuarios/usuarios.component';
+import { InfoUsuarioComponent } from './cmp-routing/info-usuario/info-usuario.component';
+import { RoutingModule } from './cmp-routing/app.routes';
+import { Error404Component } from './cmp-routing/error404/error404.component';
 
 @NgModule({
   declarations: [
@@ -48,16 +56,24 @@ import { CmpHttpComponent } from './cmp-http/cmp-http.component';
     ProductosBComponent,
     CmpObservablesComponent,
     ProductosB1Component,
-    CmpHttpComponent
+    CmpHttpComponent,
+    CmpRoutingComponent,
+    NuevoUsuarioComponent,
+    UsuariosComponent,
+    InfoUsuarioComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RoutingModule
   ],
   providers: [
-    { provide: 'instanciaA', useClass: ProductosService }
+    { provide: 'instanciaA', useClass: ProductosService },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
