@@ -7,6 +7,8 @@ import { MemeComponent } from './meme/meme.component';
 import { GeneradorMemesComponent } from './generador-memes/generador-memes.component';
 import { ListadoMemesComponent } from './listado-memes/listado-memes.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AppRouterModule } from './app.routes';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRouterModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

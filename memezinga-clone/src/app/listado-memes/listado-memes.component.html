@@ -1,1 +1,7 @@
-<p>listado-memes works!</p>
+<h1>Todos los memes</h1>
+
+<div *ngFor="let meme of memes">
+  <app-meme [meme]="meme"></app-meme>
+  <button type="button" (click)="eliminar(meme.id)">Eliminar</button>
+  <button type="button" (click)="darLike(meme.id, meme.likes)">Like: {{meme.likes}}</button>
+</div>

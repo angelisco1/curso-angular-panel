@@ -1,4 +1,4 @@
-<form [formGroup]="formulario">
+<form [formGroup]="formulario" (ngSubmit)="guardar()">
   <div>
     <label for="texto1">Texto 1:</label>
     <input type="text" id="texto1" formControlName="texto1">
