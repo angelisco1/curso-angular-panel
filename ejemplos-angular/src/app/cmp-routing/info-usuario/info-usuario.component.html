@@ -1,5 +1,7 @@
 <h3>Usuario ... (Id: {{userId}})</h3>
 
 <p>Nombre: {{usuario?.name}}</p>
-<p>Email: {{usuario?.email}}</p>
-<p>Telefono: {{usuario?.phone}}</p>
+<ng-container *ngIf="mostrarTodaLaInfo">
+  <p>Email: {{usuario?.email}}</p>
+  <p>Telefono: {{usuario?.phone}}</p>
+</ng-container>

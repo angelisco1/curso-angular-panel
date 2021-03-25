@@ -3,7 +3,8 @@
 <ul>
   <li *ngFor="let usuario of usuarios">
     {{usuario.name}}
-    <a [routerLink]="[usuario.id, 'info']" [state]="{usuario: usuario}">+ info</a>
+    <a [routerLink]="[usuario.id, 'info']" [queryParams]="{todalainfo: false}" [state]="{usuario: usuario}">Info (solo nombre)</a>
+    <a [routerLink]="[usuario.id, 'info']" [queryParams]="{todalainfo: true}" [state]="{usuario: usuario}">+ info</a>
   </li>
 </ul>
 

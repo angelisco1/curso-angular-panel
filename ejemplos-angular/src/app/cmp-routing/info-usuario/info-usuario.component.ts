@@ -11,6 +11,8 @@ import { Location } from '@angular/common';
 export class InfoUsuarioComponent implements OnInit {
   userId = '';
   usuario: any = null;
+  mostrarTodaLaInfo = true;
+
   constructor(private activatedRoute: ActivatedRoute,
     private http: HttpClient,
     private location: Location
@@ -29,6 +31,12 @@ export class InfoUsuarioComponent implements OnInit {
           .subscribe(usuario => {
             this.usuario = usuario;
           })
+      }
+    })
+
+    this.activatedRoute.queryParamMap.subscribe(queryParams => {
+      if (queryParams.has('todalainfo')) {
+        this.mostrarTodaLaInfo = queryParams.get('todalainfo') === 'true';
       }
     })
   }
